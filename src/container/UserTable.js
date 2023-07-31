@@ -6,7 +6,6 @@ import axios from "axios";
 import { HiOutlineRefresh } from "react-icons/hi";
 import logo from "../static/logo_png.png.webp";
 import { useGoogleLogin } from "@react-oauth/google";
-import jwt_decode from "jwt-decode";
 import { MdExitToApp } from "react-icons/md";
 import { AiFillGoogleCircle } from "react-icons/ai";
 import { CgHashtag } from "react-icons/cg";
@@ -61,15 +60,6 @@ const UserTable = () => {
   const [user, setUser] = useState(null);
   const [loggedIn, setLoggedIn] = useState(false);
 
-  const responseGoogle = (response) => {
-    let decodedHeader = jwt_decode(response.credential);
-    console.log(decodedHeader);
-    setLoggedIn(true);
-
-    const { name, picture } = decodedHeader;
-    setUser({ name, picture });
-  };
-
   const login = useGoogleLogin({
     onSuccess: async (respose) => {
       try {
@@ -99,9 +89,8 @@ const UserTable = () => {
 
   return (
     <div className="flex">
-      {/* Fixed Sidebar */}
+      {/* Sidebar */}
       <div className="bg-white border w-20 flex-shrink-0 p-4 md:block hidden fixed h-full">
-        {/* Sidebar content goes here */}
         <div className="flex items-center justify-end">
           <img src={logo} alt="Logo" />
           
@@ -116,7 +105,6 @@ const UserTable = () => {
               >
                 <CgHashtag size={24}/>
               </button>
-        {/* Add the settings icon at the bottom left */}
         <div className="absolute bottom-4 left-4">
           <FiSettings className="text-gray-500 m-2" size={30} />
         </div>
@@ -124,7 +112,6 @@ const UserTable = () => {
 
       {/* Divs and Table Container */}
       <div className="flex flex-col flex-1">
-        {/* Added flex-1 class to distribute remaining space */}
         {/* Divs Stacked Below Sidebar */}
         <div className="bg-white border p-4 flex justify-end">
           {loggedIn ? (
@@ -163,7 +150,7 @@ const UserTable = () => {
           )}
         </div>
         <div className="bg-white p-4 mb-4">
-          {/* Content of the second div goes here */}
+          {/* Second div */}
           
           <div className="flex flex-row items-center px-28">
           <div className="my-4 flex space-x-2 mb-4 font-Inter">
