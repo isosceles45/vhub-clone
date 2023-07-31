@@ -1,14 +1,9 @@
-import Tables from "./container/Tables";
-import Header from "./container/Header";
+import UserTable from "./container/UserTable";
 
 function App() {
   return (
     <div className="App">
-      <div className= " min-h-screen bg-gray-100">
-      <Header/>
-      <Tables/>
-      </div>
-      
+      <UserTable/>
     </div>
   );
 }
