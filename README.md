@@ -14,7 +14,7 @@ Working search functionality and google login:
 
 Mobile view:
 
-![photo_2023-08-01_02-21-15](https://github.com/isosceles45/vhub-clone/assets/91629000/3d836a78-caab-4188-8c97-49d1febc836e)
+![photo_2023-08-05_19-56-18](https://github.com/isosceles45/vhub-clone/assets/91629000/a1f640c7-a264-496a-965c-a8575253015f)
 
 ### `npm start`
 
