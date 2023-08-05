@@ -111,7 +111,7 @@ const UserTable = () => {
       </div>
 
       {/* Divs and Table Container */}
-      <div className="flex flex-col flex-1">
+      <div className="flex flex-col flex-1 ">
         {/* Divs Stacked Below Sidebar */}
         <div className="bg-white border p-4 flex justify-end">
           {loggedIn ? (
@@ -152,7 +152,7 @@ const UserTable = () => {
         <div className="bg-white p-4 mb-4">
           {/* Second div */}
           
-          <div className="flex flex-row items-center px-28">
+          <div className="lg:flex items-center px-28 hidden">
           <div className="my-4 flex space-x-2 mb-4 font-Inter">
           <button className="px-4 py-2 rounded-lg bg-gradient-to-r from-blue-500 to-cyan-400 text-white">
             User
@@ -192,9 +192,35 @@ const UserTable = () => {
             </div>
           </div>
         </div>
+        <div className="bg-white lg:hidden">
+        <div className="flex flex-row items-center">
+          <input
+            type="text"
+            value={searchQuery}
+            onChange={handleInputChange}
+            placeholder="Search for influencers"
+            className="flex-grow border rounded-lg shadow-lg px-1 py-3 mx-2"
+          />
+          <div className="flex">
+            <button
+              onClick={handleSearchClick}
+              className="bg-white hover:bg-gray-100 text-black border rounded-lg shadow-lg font-semibold px-2 py-3"
+            >
+              Search
+            </button>
+            <button
+              onClick={handleRefreshClick}
+              className="bg-white mx-2 text-black font-semibold px-4 py-2 rounded-lg shadow-lg"
+            >
+              <HiOutlineRefresh />
+            </button>
+          </div>
+        </div>
+      </div>
+      
         {/* User Table */}
-        <div className="table-container flex-1 w-full">
-          <div className="grid grid-cols-1 gap-4 px-32">
+        <div className="table-container flex-1 ">
+          <div className="grid grid-cols-1 gap-2 md:px-32 py-5">
             {/* Table View */}
             <table className="hidden shadow-lg md:table w-full">
               <thead>
@@ -205,6 +231,7 @@ const UserTable = () => {
                   <th className="px-4 py-2">Website</th>
                 </tr>
               </thead>
+              
               <tbody>
                 {users.map((user, index) => (
                   <tr key={user.id} 
@@ -232,6 +259,7 @@ const UserTable = () => {
             </table>
 
             {/* Card View (Mobile) */}
+            <div className="grid gap-4 md:hidden">
             {users.map((user, index) => (
               <div
                 key={user.id}
@@ -260,7 +288,10 @@ const UserTable = () => {
                 </div>
               </div>
             ))}
+            </div>
+            
           </div>
+          
         </div>
       </div>
     </div>
